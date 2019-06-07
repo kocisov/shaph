@@ -42,7 +42,7 @@ function view(state, action) {
   }
 }
 
-function view(state, action) {
+function user(state, action) {
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -82,3 +82,9 @@ render(
 ```
 
 #### Shaph is also written in TypeScript providing Types for better Developer Experience
+
+```ts
+combine<State, Action>({ ...reducers });
+prepare<State, Action>(reducer, initialState);
+const ProviderWithProps = Provider<Props>
+```
