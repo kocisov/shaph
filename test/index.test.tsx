@@ -66,6 +66,4 @@ describe('it', () => {
       name: { value: 'blue' },
     });
   });
-
-  it('');
 });
