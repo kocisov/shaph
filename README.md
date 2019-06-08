@@ -1,4 +1,4 @@
-# Shaph [![Build Status](https://travis-ci.org/Kocisov/shaph.svg?branch=master)](https://travis-ci.org/Kocisov/shaph)
+# Shaph [![Build Status](https://travis-ci.org/Kocisov/shaph.svg?branch=master)](https://travis-ci.org/Kocisov/shaph) [![Coverage Status](https://coveralls.io/repos/github/Kocisov/shaph/badge.svg?branch=master)](https://coveralls.io/github/Kocisov/shaph?branch=master)
 
 > Redux like State Management with Hooks and Context
 
