@@ -25,7 +25,13 @@ export function prepare<State, Action>(
   const Context = React.createContext<Shape | undefined>(undefined);
 
   function useShaph() {
-    return React.useContext(Context) as Shape;
+    const value = React.useContext(Context) as Shape;
+
+    if (!value) {
+      throw new Error('Component must be wrapped in Context.Provider.');
+    }
+
+    return value;
   }
 
   function Provider<Props>(props: React.PropsWithChildren<Props>) {
