@@ -1,11 +1,11 @@
-import 'react-app-polyfill/ie11';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { prepare, combine } from '../.';
+import 'react-app-polyfill/ie11'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { prepare, combine } from '../.'
 
 type User = {
-  name: string;
-};
+  name: string
+}
 
 function user<User>(state: User, action: Action) {
   switch (action.type) {
@@ -13,16 +13,16 @@ function user<User>(state: User, action: Action) {
       return {
         ...state,
         name: action.payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }
 
 type Message = {
-  text: string;
-};
+  text: string
+}
 
 function message<Message>(state: Message, action: Action) {
   switch (action.type) {
@@ -30,14 +30,14 @@ function message<Message>(state: Message, action: Action) {
       return {
         ...state,
         text: action.payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }
 
-const rootReducer = combine<State, Action>({ user, message });
+const rootReducer = combine<State, Action>({ user, message })
 const initialState = {
   user: {
     name: 'Shaph',
@@ -45,25 +45,22 @@ const initialState = {
   message: {
     text: 'Is this working?',
   },
-};
+}
 
 type State = {
-  user: User;
-  message: Message;
-};
+  user: User
+  message: Message
+}
 
 type Action = {
-  type: string;
-  payload?: any;
-};
+  type: string
+  payload?: any
+}
 
-const { useShaph, Provider } = prepare<State, Action>(
-  rootReducer,
-  initialState
-);
+const { useShaph, Provider } = prepare<State, Action>(rootReducer, initialState)
 
 const App = () => {
-  const [state, dispatch] = useShaph();
+  const [state, dispatch] = useShaph()
 
   function reverseName() {
     dispatch({
@@ -72,7 +69,7 @@ const App = () => {
         .split('')
         .reverse()
         .join(''),
-    });
+    })
   }
 
   return (
@@ -82,12 +79,12 @@ const App = () => {
       <p>{state.message.text}</p>
       <button onClick={reverseName}>click</button>
     </div>
-  );
-};
+  )
+}
 
 ReactDOM.render(
   <Provider>
     <App />
   </Provider>,
   document.getElementById('root')
-);
+)

@@ -14,9 +14,9 @@ $ yarn add shaph
 ## Usage
 
 ```js
-import React from 'react';
-import { render } from 'react-dom';
-import { combine, prepare } from 'shaph';
+import React from 'react'
+import { render } from 'react-dom'
+import { combine, prepare } from 'shaph'
 
 const state = {
   view: {
@@ -27,7 +27,7 @@ const state = {
     cool: true,
     name: undefined,
   },
-};
+}
 
 function view(state, action) {
   switch (action.type) {
@@ -35,10 +35,10 @@ function view(state, action) {
       return {
         ...state,
         theme: action.payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }
 
@@ -49,28 +49,28 @@ function user(state, action) {
         ...state,
         authenticated: true,
         name: action.payload.name,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }
 
 const rootReducer = combine({
   user,
   view,
-});
+})
 
-const { Provider, useShaph } = prepare(rootReducer, state);
+const { Provider, useShaph } = prepare(rootReducer, state)
 
 function View() {
-  const [state] = useShaph();
+  const [state] = useShaph()
 
   return (
     <div className={state.view.theme}>
       {state.user.authenticated && <h2>Hello, {state.user.name}</h2>}
     </div>
-  );
+  )
 }
 
 render(
@@ -78,10 +78,10 @@ render(
     <View />
   </Provider>,
   document.getElementById('root')
-);
+)
 ```
 
-#### Shaph is also written in TypeScript providing Types for better Developer Experience
+### Shaph is also written in TypeScript providing Types for better Developer Experience
 
 ```ts
 combine<State, Action>({ ...reducers });
