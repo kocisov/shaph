@@ -1,19 +1,16 @@
-import 'react-app-polyfill/ie11'
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { useShaph, Provider } from './store'
+import "react-app-polyfill/ie11";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {useShaph, Provider} from "./store";
 
 const App = () => {
-  const [state, dispatch] = useShaph()
+  const [state, dispatch] = useShaph();
 
   function reverseName() {
     dispatch({
-      type: 'SET_NAME',
-      payload: state.user.name
-        .split('')
-        .reverse()
-        .join(''),
-    })
+      type: "SET_NAME",
+      payload: state.user.name.split("").reverse().join(""),
+    });
   }
 
   return (
@@ -23,12 +20,12 @@ const App = () => {
       <p>{state.message.text}</p>
       <button onClick={reverseName}>click</button>
     </div>
-  )
-}
+  );
+};
 
 ReactDOM.render(
   <Provider>
     <App />
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
